@@ -15,7 +15,7 @@ const theme = {
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
 }
 
-const StyledPage = styled.div`
+const Layout = styled.div`
   display: grid;
   grid-template-columns: 300px auto;
   grid-template-rows: 100px 100%;
@@ -31,12 +31,11 @@ class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <StyledPage>
-          {/* <Meta /> */}
+        <Layout>
           <Header />
           <Menu />
           <Container>{this.props.children}</Container>
-        </StyledPage>
+        </Layout>
       </ThemeProvider>
     )
   }
