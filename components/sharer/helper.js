@@ -27,10 +27,12 @@ export const simpleCalc = players => {
           from: sender.name,
           amount: Math.round(Math.min(balanceEach - reciever.balance, toTransfer)),
         }
-        toTransfer -= transfer.amount
-        reciever.balance += transfer.amount
+        if (transfer.amount > 0) {
+          toTransfer -= transfer.amount
+          reciever.balance += transfer.amount
 
-        transfers.push(transfer)
+          transfers.push(transfer)
+        }
       }
     })
   })
