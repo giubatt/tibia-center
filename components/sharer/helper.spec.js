@@ -60,20 +60,20 @@ describe('simpleCalc', () => {
       // Arrange
       const players = [
         {
-          name: 'Knight',
-          balance: 100000,
-        },
-        {
-          name: 'Druid',
-          balance: -50000,
+          name: 'Paladin',
+          balance: 5000,
         },
         {
           name: 'Sorcerer',
           balance: -25000,
         },
         {
-          name: 'Paladin',
-          balance: 5000,
+          name: 'Druid',
+          balance: -50000,
+        },
+        {
+          name: 'Knight',
+          balance: 100000,
         },
       ]
 
