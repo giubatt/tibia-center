@@ -1,8 +1,14 @@
 import styled from 'styled-components'
 
-const Header = styled.div`
-  background-color: red;
+export const HeaderArea = styled.div`
   grid-area: header;
+  text-align: center;
 `
+
+const Header = () => (
+  <HeaderArea>
+    <h1>Tibia Center</h1>
+  </HeaderArea>
+)
 
 export default Header

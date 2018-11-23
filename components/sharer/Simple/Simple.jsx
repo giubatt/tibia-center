@@ -2,10 +2,8 @@ import { Formik, Form, Field, FieldArray } from 'formik'
 import { Delete } from 'react-feather'
 import styled from 'styled-components'
 
-import Button from '../styled/Button'
-import Title from '../styled/Title'
-
-import { simpleCalc } from './helper'
+import Button from '../../styled/Button'
+import Title from '../../styled/Title'
 
 const InputLine = styled.div`
   display: grid;
@@ -20,13 +18,13 @@ const StyledDelete = styled(Delete)`
   cursor: pointer;
 `
 
-const SimpleSharer = () => (
+const SimpleSharer = ({ simpleCalc, players = [{ name: 'Knight', balance: '' }, { name: 'Druid', balance: '' }] }) => (
   <div>
     <Title>Simple Loot Sharer</Title>
 
     <Formik
-      initialValues={{ players: [{ name: '', balance: '' }, { name: '', balance: '' }] }}
-      onSubmit={values => alert(JSON.stringify(simpleCalc(values.players), null, 2))}
+      initialValues={{ players }}
+      onSubmit={({ players }) => alert(JSON.stringify(simpleCalc(players), null, 2))}
       render={({ values }) => (
         <Form>
           <FieldArray

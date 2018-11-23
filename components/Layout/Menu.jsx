@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-const Menu = styled.div`
+export const MenuArea = styled.div`
   background-color: orange;
   grid-area: menu;
 `
+const Menu = () => <MenuArea />
 
 export default Menu
