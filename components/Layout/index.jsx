@@ -5,13 +5,13 @@ import Container from './Content'
 import Header from './Header'
 import Menu from './Menu'
 
-export const Layout = styled.div`
+export const GridLayout = styled.div`
   display: grid;
-  grid-template-columns: 300px auto;
-  grid-template-rows: 100px 100%;
+  grid-template-columns: 1fr minmax(auto, 1400px) 1fr;
+  grid-template-rows: 80px auto;
   grid-template-areas:
-    'header header'
-    'menu content';
+    'header header header'
+    '. content .';
   height: 100vh;
   background: white;
   color: ${props => props.theme.black};
@@ -31,11 +31,11 @@ class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Layout>
+        <GridLayout>
           <Header />
           <Menu />
           <Container>{this.props.children}</Container>
-        </Layout>
+        </GridLayout>
       </ThemeProvider>
     )
   }

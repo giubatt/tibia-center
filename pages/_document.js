@@ -1,5 +1,12 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet, createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+@font-face {
+	font-family: 'martel';
+	src: url('../static/fonts/martel.ttf');
+}
+`
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -17,6 +24,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+        <GlobalStyle />
       </html>
     )
   }

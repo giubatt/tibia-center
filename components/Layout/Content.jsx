@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 const ContentArea = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  grid-area: content;
   justify-self: center;
   padding: 2rem;
-  grid-area: content;
+  /* background-color: red; */
 `
 
 export default ContentArea
