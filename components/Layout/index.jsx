@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 
 import Container from './Content'
 import Header from './Header'
-import Menu from './Menu'
 
 export const GridLayout = styled.div`
   display: grid;
@@ -33,7 +32,6 @@ class Page extends Component {
       <ThemeProvider theme={theme}>
         <GridLayout>
           <Header />
-          <Menu />
           <Container>{this.props.children}</Container>
         </GridLayout>
       </ThemeProvider>

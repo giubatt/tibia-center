@@ -33,9 +33,9 @@ const Header = () => (
                 <Link href="/sharer/simple">
                   <a className="navbar-item">Simple</a>
                 </Link>
-                <Link href="/sharer/advanced">
+                {/* <Link href="/sharer/advanced">
                   <a className="navbar-item">Advanced</a>
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="navbar-item has-dropdown is-hoverable">
