@@ -38,6 +38,15 @@ const Header = () => (
                 </Link>
               </div>
             </div>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">Tools</a>
+
+              <div className="navbar-dropdown is-boxed">
+                <Link href="/tools/boss">
+                  <a className="navbar-item">Boss Timers</a>
+                </Link>
+              </div>
+            </div>
           </div>
         </NavbarMenu>
       </div>
