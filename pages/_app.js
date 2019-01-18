@@ -1,9 +1,8 @@
 import App, { Container } from 'next/app'
-import { ApolloProvider } from 'react-apollo'
+// import { ApolloProvider } from 'react-apollo'
 
 import 'bulma/css/bulma.css'
 import Layout from '../components/Layout'
-import withData from '../lib/withData'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -16,18 +15,18 @@ class MyApp extends App {
     return { pageProps }
   }
   render() {
-    const { Component, apollo, pageProps } = this.props
+    const { Component, pageProps } = this.props
 
     return (
       <Container>
-        <ApolloProvider client={apollo}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ApolloProvider>
+        {/* <ApolloProvider client={apollo}> */}
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        {/* </ApolloProvider> */}
       </Container>
     )
   }
 }
 
-export default withData(MyApp)
+export default MyApp

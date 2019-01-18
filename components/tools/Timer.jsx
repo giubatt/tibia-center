@@ -1,37 +1,85 @@
 import styled from 'styled-components'
+import { distanceInWords } from 'date-fns'
 
 import useTimer from '../../lib/hooks/useTimer'
 
-const TimerContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  background-color: gray;
+const TimerWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 50px auto auto;
+  grid-template-areas:
+    'image'
+    'name'
+    'timer'
+    'action';
+
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #cecece;
+  padding: 20px;
+  flex-basis: 200px;
+  flex-shrink: 0;
+  margin: 10px;
 `
 
-const TWENTY_HOURS = 20 * 60 * 60 * 1000
+const Picture = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
-const Timer = () => {
-  const { timeLeft, startTimer, resetTimer } = useTimer({ id: 1, total: 60 * 1000 })
-  const { timeLeft: boss1Time, startTimer: start2, resetTimer: reset2 } = useTimer({ id: 2, total: 60 * 1000 })
-  const { timeLeft: boss2Time, startTimer: start3, resetTimer: reset3 } = useTimer({ id: 3, total: 60 * 1000 })
+const ProgressWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  span {
+    position: absolute;
+  }
+`
+
+const Timer = ({ name, totalTime }) => {
+  const { timeLeft, startTimer, resetTimer } = useTimer({ id: name, total: totalTime })
 
   return (
-    <TimerContainer>
-      <div>background</div>
-      {timeLeft}
-      <button onClick={startTimer}>Start</button>
-      <button onClick={resetTimer}>Reset</button>
-      <div>
-        {boss1Time}
-        <button onClick={start2}>Start</button>
-        <button onClick={reset2}>Reset</button>
-      </div>
-      <div>
-        {boss2Time}
-        <button onClick={start3}>Start</button>
-        <button onClick={reset3}>Reset</button>
-      </div>
-    </TimerContainer>
+    <TimerWrapper>
+      <Picture>
+        <figure className="image is-64x64">
+          <img src={`../../static/images/creature/${name}.gif`} alt={name} />
+        </figure>
+      </Picture>
+      <header className="is-size-5 has-text-weight-bold has-text-centered">{name}</header>
+      <ProgressWrapper>
+        <progress
+          className="progress is-large is-marginless is-success"
+          value={timeLeft === totalTime ? 0 : timeLeft}
+          max={totalTime}
+        />
+        <span className="has-text-dark">
+          {(() => {
+            if (!timeLeft) return 'Ready!'
+            if (timeLeft < totalTime) return distanceInWords(timeLeft, 0, { includeSeconds: true })
+            return '-'
+          })()}
+        </span>
+      </ProgressWrapper>
+      {(timeLeft === 0 || timeLeft === totalTime) && (
+        <button className="button is-small is-rounded is-outlined is-success" onClick={startTimer}>
+          Start
+        </button>
+      )}
+      {timeLeft > 0 && timeLeft < totalTime && (
+        <button className="button is-small is-rounded is-outlined" onClick={resetTimer}>
+          Reset
+        </button>
+      )}
+    </TimerWrapper>
   )
 }
 

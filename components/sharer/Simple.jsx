@@ -17,7 +17,7 @@ const StyledDelete = styled(Delete)`
   cursor: pointer;
 `
 
-const SharerSimple = ({ onSubmit, players = [{ name: 'Knight', balance: '' }, { name: 'Druid', balance: '' }] }) => (
+const SharerSimple = ({ onSubmit, players = [{ name: 'Knight', balance: 0 }, { name: 'Druid', balance: 0 }] }) => (
   <Formik
     initialValues={{ players }}
     onSubmit={onSubmit}
@@ -42,13 +42,13 @@ const SharerSimple = ({ onSubmit, players = [{ name: 'Knight', balance: '' }, { 
               ))}
               <div className="level">
                 <Button
-                  className=" is-primary level-left"
+                  className="is-primary level-left"
                   type="button"
-                  onClick={() => arrayHelpers.push({ name: '', balance: '' })}
+                  onClick={() => arrayHelpers.push({ name: '', balance: 0 })}
                 >
                   Add player
                 </Button>
-                <Button className=" is-info level-right" type="submit">
+                <Button className="is-info level-right" type="submit">
                   Calculate
                 </Button>
               </div>

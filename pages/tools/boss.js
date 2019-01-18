@@ -11,16 +11,27 @@ const PageLayout = styled.div`
   grid-row-gap: 20px;
 `
 
+const TimersLayout = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`
+
+const TWENTY_HOURS = 20 * 60 * 60 * 1000
+const TWO_HOURS = 2 * 60 * 60 * 1000
+
 const BossTimersPage = () => {
   return (
     <PageLayout>
       <PageTitle>Boos Timers</PageTitle>
 
-      <Timer />
-
-      {/* <Simple onSubmit={onSubmit} /> */}
-
-      {/* <Transfers totalBalance={totalBalance} balanceEach={balanceEach} transfers={transfers} /> */}
+      <TimersLayout>
+        <Timer name="Bloodback" totalTime={TWENTY_HOURS} />
+        <Timer name="Darkfang" totalTime={TWENTY_HOURS} />
+        <Timer name="Sharpclaw" totalTime={TWENTY_HOURS} />
+        <Timer name="Black Vixen" totalTime={TWENTY_HOURS} />
+        <Timer name="Shadowpelt" totalTime={TWENTY_HOURS} />
+      </TimersLayout>
     </PageLayout>
   )
 }

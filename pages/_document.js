@@ -20,6 +20,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>{this.props.styleTags}</Head>
+        <GlobalStyle />
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -30,7 +31,6 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <GlobalStyle />
       </html>
     )
   }
