@@ -41,7 +41,6 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 0,
     'react/prop-types': 0,
-    indent: ['error', 2],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'import/newline-after-import': ['error'],

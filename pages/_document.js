@@ -27,6 +27,7 @@ export default class MyDocument extends Document {
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossOrigin=""
         />
+        <link rel="stylesheet" href="static/css/leaflet.draw.css" />
         <body>
           <Main />
           <NextScript />
